@@ -1,11 +1,16 @@
-/* resource "azurerm_resource_group" "infinite-rg" {
-  
-  for_each = var.resource_groups
-  name     = each.value.resource_group_name
-  location = each.value.location
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+}
 
-} */
-
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}  
+}
 
 resource "azurerm_proximity_placement_group" "infinite-ppg" {
   depends_on = [
